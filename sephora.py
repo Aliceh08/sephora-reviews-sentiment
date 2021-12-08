@@ -37,12 +37,6 @@ os.chdir('/Users/alicehuang/Desktop/SCHOOL/brandeis/MARKETING ANALYTICS/data fil
 
 driver.current_url
 driver.close()
-
-
-# helpful review
-# driver.page_source
-
-
         
 #%%%
 driver.get('https://www.sephora.com/product/aha-30-bha-2-peeling-solution-P442563')
@@ -116,25 +110,16 @@ while(condition_to_continue):
 #%%% Cleaning Data
 sephora = pd.DataFrame.from_dict(reviews_dict)
 sephora.to_excel('backup-1.xlsx')
-# sephora.to_excel('backup1.xlsx')
-sephora = pd.read_excel('/Users/alicehuang/Desktop/SCHOOL/brandeis/MARKETING ANALYTICS/data files/backup-1.xlsx',index_col=0).reset_index()
-sephora = pd.read_excel('/Users/alicehuang/Desktop/SCHOOL/brandeis/MARKETING ANALYTICS/data files/elephant_backup.xlsx',index_col=0).reset_index()
-
 
 sephora['review_raw'].map(lambda sephora: BeautifulSoup(sephora).text)
 BeautifulSoup(sephora.review_raw.iloc[0]).text
-
 sephora = sephora.dropna(subset = ['one_review_text','one_characteristics'])
-
 
 #get star rating
 sephora['star_rating'] = sephora.one_review_stars.str.extract('([0-5]) (star(s|))')[[0]]
 #get skin type
 sephora['skin_type']  = sephora.one_characteristics.str.extract('(Combination|Normal|Oily|Dry)')
 sephora = sephora.dropna(subset = ['skin_type'])
-
-#drop na
-
 
 #create a filter 
 f = sephora.one_date.str.match('\d+ [d,h] ago')
@@ -171,12 +156,7 @@ tmp3['clean date'] = pd.to_datetime(tmp3['one_date']).dt.strftime('%m/%d/%Y')
 sephora_reviews = pd.concat([tmp2,tmp3],axis = 0)
 sephora_reviews = sephora_reviews.drop(['index','one_date','one_review_stars','one_characteristics'], axis = 1)
 
-#fill na for skin_type
-# type_list= ['Combination','Dry','Normal','Oily']
-# dta['skin_type'] = dta['skin_type'].str.replace(" ",random.choice(type_list))
-
 #to excel
-sephora_reviews.to_excel('ordinary-aha.xlsx')
-sephora_reviews.to_excel('elephant.xlsx')
+sephora_reviews.to_excel('ordinary-nia.xlsx')
 
 
