@@ -26,16 +26,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from pynput.mouse import Button, Controller
 from datetime import timedelta
 
-
-pd.set_option('display.max_rows', 10)
-pd.set_option('display.max_columns', 5)
-pd.set_option('display.width',800)
 path = '/Users/alicehuang/Desktop/SCHOOL/brandeis/MARKETING ANALYTICS/data files/chromedriver'
 driver    = webdriver.Chrome(path)
 os.chdir('/Users/alicehuang/Desktop/SCHOOL/brandeis/MARKETING ANALYTICS/data files')
-
-driver.current_url
-driver.close()
         
 #%%%
 driver.get('https://www.sephora.com/product/aha-30-bha-2-peeling-solution-P442563')
@@ -103,6 +96,8 @@ while(condition_to_continue):
         break
     else:
         time.sleep(random.randint(1,3))  
+        
+driver.close()
         
     
 #%%% Cleaning Data
