@@ -32,7 +32,6 @@ pd.set_option('display.max_columns', 5)
 pd.set_option('display.width',800)
 path = '/Users/alicehuang/Desktop/SCHOOL/brandeis/MARKETING ANALYTICS/data files/chromedriver'
 driver    = webdriver.Chrome(path)
-# os.chdir(path)
 os.chdir('/Users/alicehuang/Desktop/SCHOOL/brandeis/MARKETING ANALYTICS/data files')
 
 driver.current_url
@@ -50,7 +49,6 @@ mouse = Controller()
 position = (576,386)
 mouse.position = position 
 mouse.scroll (0,-30) 
-
 
 # Finding all the reviews in the website and bringing them to python
 reviews_dict    = []
