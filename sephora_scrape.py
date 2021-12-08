@@ -29,9 +29,10 @@ from datetime import timedelta
 path = '/Users/alicehuang/Desktop/SCHOOL/brandeis/MARKETING ANALYTICS/data files/chromedriver'
 driver    = webdriver.Chrome(path)
 os.chdir('/Users/alicehuang/Desktop/SCHOOL/brandeis/MARKETING ANALYTICS/data files')
-        
-#%%%
+
 driver.get('https://www.sephora.com/product/aha-30-bha-2-peeling-solution-P442563')
+
+#%%%
 
 # jump to review section
 WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH,"//span[@data-at='number_of_reviews']")))
