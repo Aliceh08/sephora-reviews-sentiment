@@ -30,7 +30,7 @@ path = '/Users/alicehuang/Desktop/SCHOOL/brandeis/MARKETING ANALYTICS/data files
 driver    = webdriver.Chrome(path)
 os.chdir('/Users/alicehuang/Desktop/SCHOOL/brandeis/MARKETING ANALYTICS/data files')
 
-driver.get('https://www.sephora.com/product/aha-30-bha-2-peeling-solution-P442563')
+driver.get('https://www.sephora.com/product/the-ordinary-deciem-niacinamide-10-zinc-1-P427417?skuId=2031391&icid2=skugrid:p427417:product')
 
 #%%%
 
