@@ -130,7 +130,7 @@ def Conf_Matrix(Y_test,result):
     return print(conf_matrix,'Accuracy:', round(accuracy_rate,2))
 
 '''tfidf'''
-def graph_tfidf (ngram_range,max_df,min_df,corpus):
+def graph_tfidf (ngram_range,max_df,min_df,title,corpus):
     vectorizer_tf_idf = TfidfVectorizer(lowercase   = True,
                                         ngram_range = ngram_range,
                                         max_df      = max_df,
@@ -148,7 +148,7 @@ def graph_tfidf (ngram_range,max_df,min_df,corpus):
     plt.barh(df2['Words'],df2['Weight'], color = 'coral')
     plt.xlabel('Weight')
     plt.gca().invert_yaxis()
-    plt.title('Term Frequency in Reviews')
+    plt.title(title)
     return plt.show()
 
 
@@ -163,6 +163,7 @@ max_df = 0.95
 min_df = 0.01
 
 graph_tfidf (ngram_range,max_df,min_df,corpus)
+title = 'Term Frequency in High Rating Reviews'
 
 #low reviews
 dta_low = dta[dta['star_rating']<3]
@@ -171,6 +172,7 @@ corpus = dta_low['one_review_text'].to_numpy()
 ngram_range = (3,4)
 max_df = 0.95
 min_df = 0.01
+title = 'Term Frequency in Low Rating Reviews'
 
 graph_tfidf (ngram_range,max_df,min_df,corpus)
 
